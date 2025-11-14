@@ -1,6 +1,6 @@
 // swift-interface-format-version: 1.0
 // swift-compiler-version: Apple Swift version 6.1.2 effective-5.10 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
-// swift-module-flags: -target x86_64-apple-ios18.2-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name KountSDK
+// swift-module-flags: -target x86_64-apple-ios15.6-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name KountSDK
 // swift-module-flags-ignorable:  -interface-compiler-version 6.1.2
 import CommonCrypto
 import CoreFoundation
@@ -82,10 +82,6 @@ public protocol AnalyticsServicing {
   @objc final public var isDebugMode: Swift.Bool
   @objc public static var appSessionID: Swift.String
   @objc public static var logInEvents: [[Swift.String : Any]]
-  final public func configure(_ configuration: any KountSDK.KountConfigurable)
-  @objc final public func startAnalytics(merchantId: Swift.String, sessionId: Swift.String)
-  @objc final public func collectAndSubmit(completion: @escaping (Swift.Bool, (any Swift.Error)?) -> Swift.Void)
-  @objc final public func stopAnalytics()
   @objc final public func register(viewController: UIKit.UIViewController)
   @objc final public func collect(_ sessionID: Swift.String?, analyticsSwitch analyticsData: Swift.Bool, completion completionBlock: @escaping (Swift.String, Swift.Bool, (any Swift.Error)?) -> Swift.Void)
   @objc final public func setEnvironmentForAnalytics(_ env: KountSDK.KountEnvironment)
@@ -101,9 +97,9 @@ public protocol AnalyticsServicing {
   @objc final public func forceDataSubmission()
   @objc final public func registerBackgroundTask()
   @objc final public func processButtonEvents(_ events: [[Swift.String : Any]])
-  @objc final public func processSliderEvents(_ events: [[Swift.String : Any]])
-  @objc final public func processStepperEvents(_ events: [[Swift.String : Any]])
-  @objc final public func processPageControlEvents(_ events: [[Swift.String : Any]])
+  @objc final public func processSliderEvents(_ events: [[Swift.String : Any]], slider: UIKit.UISlider, touch: UIKit.UITouch)
+  @objc final public func processStepperEvents(_ events: [[Swift.String : Any]], stepper: UIKit.UIStepper, touch: UIKit.UITouch)
+  @objc final public func processPageControlEvents(_ events: [[Swift.String : Any]], pageControl: UIKit.UIPageControl, touch: UIKit.UITouch)
   @objc final public func processImageViewEvents(_ events: [[Swift.String : Any]])
   @objc final public func trackTouchBegan(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent?)
   @objc final public func handleTouchBegan(_ touches: Swift.Set<UIKit.UITouch>, event: UIKit.UIEvent?)
@@ -182,6 +178,9 @@ public protocol AnalyticsServicing {
   @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
 }
+@_hasMissingDesignatedInitializers final public class PageLevelCollector {
+  @objc deinit
+}
 public struct KDataCollectorKeys {
   public struct Internal {
     public static let merchantID: Swift.String
@@ -228,12 +227,17 @@ public struct KDataCollectorKeys {
     public static let systemCollectorElapsedTime: Swift.String
     public static let fingerprintCollectorElapsedTime: Swift.String
     public static let locationCollectorElapsedTime: Swift.String
+    public static let altitude: Swift.String
+    public static let altitudeAccuracy: Swift.String
     public static let city: Swift.String
     public static let state: Swift.String
     public static let country: Swift.String
+    public static let heading: Swift.String
+    public static let horizontalAccuracy: Swift.String
     public static let isoCountryCode: Swift.String
     public static let postalCode: Swift.String
     public static let organization: Swift.String
+    public static let speed: Swift.String
     public static let street: Swift.String
     public static let reverseGeocodeElapsedTime: Swift.String
   }
@@ -253,26 +257,26 @@ public struct KDataCollectorKeys {
     public static let addressNotCollected: Swift.String
   }
 }
-@objc public enum TouchPhases : Swift.Int {
-  case began
-  case moved
-  case ended
-  case cancelled
-  public init?(rawValue: Swift.Int)
-  public typealias RawValue = Swift.Int
-  public var rawValue: Swift.Int {
-    get
-  }
-}
-@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class TouchTrackingService : ObjectiveC.NSObject {
-  public static let shared: KountSDK.TouchTrackingService
-  @objc public func track(touches: Swift.Set<UIKit.UITouch>, event: UIKit.UIEvent?, phase: KountSDK.TouchPhases)
-  @objc deinit
+public struct LocationCollectorPayload : Swift.Codable {
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 @objc public enum KountEnvironment : Swift.Int {
-  case test
-  case production
+  case test = 1
+  case production = 2
   public var formAnalyticsURL: Swift.String {
+    get
+  }
+  public var pageCollectorURL: Swift.String {
+    get
+  }
+  public var telemetryCollectorURL: Swift.String {
+    get
+  }
+  public var locationCollectorURL: Swift.String {
+    get
+  }
+  public var applicationCollectorURL: Swift.String {
     get
   }
   public init?(rawValue: Swift.Int)
@@ -353,6 +357,8 @@ public struct AnalyticsEvent {
   final public func configure(using configurator: (KountSDK.KountConfigurationBuilder) -> KountSDK.KountConfigurationBuilder) -> KountSDK.Kount
   @objc final public func collectForSession(sessionID: Swift.String, completion: @escaping (Swift.String, Swift.Bool, (any Swift.Error)?) -> Swift.Void)
   @objc final public func collect(_ sessionID: Swift.String?, analyticsSwitch analyticsData: Swift.Bool, completion: @escaping (Swift.String, Swift.Bool, (any Swift.Error)?) -> Swift.Void)
+  @objc final public func startLocationCollection(sessionID: Swift.String)
+  @objc final public func stopLocationCollection()
   @objc deinit
 }
 @objc @_inheritsConvenienceInitializers @objcMembers public class KDataCollector : ObjectiveC.NSObject {
@@ -391,6 +397,10 @@ public struct AnalyticsEvent {
   @objc override dynamic public init()
   @objc deinit
 }
+@_hasMissingDesignatedInitializers final public class ApplicationCollector {
+  final public func collectAndSend(payload: KountSDK.ApplicationCollectorPayload)
+  @objc deinit
+}
 public struct KountConfiguration {
   public var merchantID: Swift.String
   public var environment: KountSDK.KountEnvironment
@@ -410,15 +420,20 @@ public class KountConfigurationBuilder {
   public func build() -> KountSDK.KountConfiguration
   @objc deinit
 }
+public struct ApplicationCollectorPayload : Swift.Codable {
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct TelemetryPayload : Swift.Codable {
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
 public enum KAnalyticsConstants {
   public static let viewControllerWillDisappearNotification: Foundation.Notification.Name
 }
 extension KountSDK.KDataCollectorStatus : Swift.Equatable {}
 extension KountSDK.KDataCollectorStatus : Swift.Hashable {}
 extension KountSDK.KDataCollectorStatus : Swift.RawRepresentable {}
-extension KountSDK.TouchPhases : Swift.Equatable {}
-extension KountSDK.TouchPhases : Swift.Hashable {}
-extension KountSDK.TouchPhases : Swift.RawRepresentable {}
 extension KountSDK.KountEnvironment : Swift.Equatable {}
 extension KountSDK.KountEnvironment : Swift.Hashable {}
 extension KountSDK.KountEnvironment : Swift.RawRepresentable {}
