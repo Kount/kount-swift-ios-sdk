@@ -4,25 +4,29 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>.DS_Store</key>
+		<data>
+		3y++sUAKzaCQmjLBz2v0kvESHgc=
+		</data>
 		<key>ios-arm64/KountSDK.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
 		<data>
-		qnPLJDOGsblp3hmit+O6K5Rb6Os=
+		1+1HjYnJsQ7+AduXZOUaHsz3tbg=
 		</data>
 		<key>ios-arm64/KountSDK.swiftmodule/arm64-apple-ios.abi.json</key>
 		<data>
-		ukT1SpB05nqQ4xB0cvzHu3H9AAU=
+		W7humjHHooGvumGo9Zo/fnR1Rpc=
 		</data>
 		<key>ios-arm64/KountSDK.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<data>
-		5HWSMM/RFwlvrenlSL+KPwzUuAs=
+		a7E4fgFoIsEabmzsOQS65HWVGGQ=
 		</data>
 		<key>ios-arm64/KountSDK.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		XuInXlKoDk0HUd+mErWcw7U6pMs=
+		lroLuKvuZj7BLU3QO7pzH2t6CIo=
 		</data>
 		<key>ios-arm64/KountSDK.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
-		5HWSMM/RFwlvrenlSL+KPwzUuAs=
+		a7E4fgFoIsEabmzsOQS65HWVGGQ=
 		</data>
 		<key>ios-arm64/PrivacyInfo.xcprivacy</key>
 		<data>
@@ -30,47 +34,47 @@
 		</data>
 		<key>ios-arm64/libKountSDK.a</key>
 		<data>
-		Htg/v47+bHSNGjlVWZ/cNoOauqg=
+		ndPlnxQB4PYjDy6+UhWikxk+P+k=
 		</data>
 		<key>ios-arm64_x86_64-simulator/KountSDK.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		OsNKF9E4OrLYHuP7lA8F0KRKtkU=
+		vK5Ngp+2DzZkn0RhWkNag+DIEqc=
 		</data>
 		<key>ios-arm64_x86_64-simulator/KountSDK.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		rCtgGADdY3LOWWAPOInbKIlnvLM=
+		bbA/y9rBALbTIMDX8vX6mQGv6oY=
 		</data>
 		<key>ios-arm64_x86_64-simulator/KountSDK.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		ukT1SpB05nqQ4xB0cvzHu3H9AAU=
+		W7humjHHooGvumGo9Zo/fnR1Rpc=
 		</data>
 		<key>ios-arm64_x86_64-simulator/KountSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		6PGNhoiW7IFIyRbaj/KxgJEkCSU=
+		p9S6fpLo8ycii2pxMgVr4pcpEwk=
 		</data>
 		<key>ios-arm64_x86_64-simulator/KountSDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		hOWQyhj5oVXY4DXxqI7yj+EfbMI=
+		S5blnMDBk+lvJJHgoY66wwGt0as=
 		</data>
 		<key>ios-arm64_x86_64-simulator/KountSDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		6PGNhoiW7IFIyRbaj/KxgJEkCSU=
+		p9S6fpLo8ycii2pxMgVr4pcpEwk=
 		</data>
 		<key>ios-arm64_x86_64-simulator/KountSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		ukT1SpB05nqQ4xB0cvzHu3H9AAU=
+		W7humjHHooGvumGo9Zo/fnR1Rpc=
 		</data>
 		<key>ios-arm64_x86_64-simulator/KountSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		hY8XxzRhhYTgCi9gKWVgvFmfD6k=
+		yUJ7CZVjG4CjLPUolJzNYjrW2SM=
 		</data>
 		<key>ios-arm64_x86_64-simulator/KountSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		IN/t/5IpGzA6dCfKWSXLrH+t0QM=
+		BhkaZ51sYpPlaO/r/tF+bVsKlO8=
 		</data>
 		<key>ios-arm64_x86_64-simulator/KountSDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		hY8XxzRhhYTgCi9gKWVgvFmfD6k=
+		yUJ7CZVjG4CjLPUolJzNYjrW2SM=
 		</data>
 		<key>ios-arm64_x86_64-simulator/PrivacyInfo.xcprivacy</key>
 		<data>
@@ -78,7 +82,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/libKountSDK.a</key>
 		<data>
-		tjQqLSWuG7FfocVuMqBBOdJpNaU=
+		2ckdwcvVdRBTV3UetwJIBgOUUc4=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -87,55 +91,55 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			qnPLJDOGsblp3hmit+O6K5Rb6Os=
+			1+1HjYnJsQ7+AduXZOUaHsz3tbg=
 			</data>
 			<key>hash2</key>
 			<data>
-			uxxNiPCu1ymFVUC4SCH/ECzgsy777cEn5bLU9mUp4ds=
+			nSZVk48fDna4yV2LHZsp03rDVIoVAjmt0Tot3/GAI1w=
 			</data>
 		</dict>
 		<key>ios-arm64/KountSDK.swiftmodule/arm64-apple-ios.abi.json</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ukT1SpB05nqQ4xB0cvzHu3H9AAU=
+			W7humjHHooGvumGo9Zo/fnR1Rpc=
 			</data>
 			<key>hash2</key>
 			<data>
-			hYikFnmPdIvxcrUU5yjtEZTvi8Z55trvAP87fpyeBjk=
+			sI7gEXHnVmY1ITgPc30HDyD2rp6B3kgToKHAv2mBnGQ=
 			</data>
 		</dict>
 		<key>ios-arm64/KountSDK.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			5HWSMM/RFwlvrenlSL+KPwzUuAs=
+			a7E4fgFoIsEabmzsOQS65HWVGGQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			ChPlXVIb4ZY9eDAJ1Y31WK5jGIb8thyLyNZMnmgDJSw=
+			jiivuYHipUkBYYMCzwoIQTsX3Hj4avbvOfa/ogf3Jvg=
 			</data>
 		</dict>
 		<key>ios-arm64/KountSDK.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			XuInXlKoDk0HUd+mErWcw7U6pMs=
+			lroLuKvuZj7BLU3QO7pzH2t6CIo=
 			</data>
 			<key>hash2</key>
 			<data>
-			qAfGNi1vcImST8cs/faEs26jOVKa/jhrr12F7brFr6I=
+			FnpfDgX2iGt+wQ8bSyrTqESb4SYNYX/Iypqh9GXOm2k=
 			</data>
 		</dict>
 		<key>ios-arm64/KountSDK.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			5HWSMM/RFwlvrenlSL+KPwzUuAs=
+			a7E4fgFoIsEabmzsOQS65HWVGGQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			ChPlXVIb4ZY9eDAJ1Y31WK5jGIb8thyLyNZMnmgDJSw=
+			jiivuYHipUkBYYMCzwoIQTsX3Hj4avbvOfa/ogf3Jvg=
 			</data>
 		</dict>
 		<key>ios-arm64/PrivacyInfo.xcprivacy</key>
@@ -153,121 +157,121 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Htg/v47+bHSNGjlVWZ/cNoOauqg=
+			ndPlnxQB4PYjDy6+UhWikxk+P+k=
 			</data>
 			<key>hash2</key>
 			<data>
-			ynmyJKCJmVtoVNEjPf2Vw63jxXJfdk7mEwBmKWecCwU=
+			HFWWAKt+jSEA7w/gu/eU6cGgU/LO/VJVCC8JDAR/58c=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/KountSDK.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			OsNKF9E4OrLYHuP7lA8F0KRKtkU=
+			vK5Ngp+2DzZkn0RhWkNag+DIEqc=
 			</data>
 			<key>hash2</key>
 			<data>
-			3Sx3tfj+/BiyZ4bm0w+TV+ZGIEREbACezKmNhfbpjt4=
+			HayPtk5ri7wYtyj1AltijSOd3JCNhiaCPj700kakNE8=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/KountSDK.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			rCtgGADdY3LOWWAPOInbKIlnvLM=
+			bbA/y9rBALbTIMDX8vX6mQGv6oY=
 			</data>
 			<key>hash2</key>
 			<data>
-			EjZjxf9IalrqcOJOa/V13WGvItcuRkGSr12oQB21Cts=
+			3sSWXukVFCI6PZk9SYgjAKwGYevjeXxnusJPE44bK6Y=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/KountSDK.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ukT1SpB05nqQ4xB0cvzHu3H9AAU=
+			W7humjHHooGvumGo9Zo/fnR1Rpc=
 			</data>
 			<key>hash2</key>
 			<data>
-			hYikFnmPdIvxcrUU5yjtEZTvi8Z55trvAP87fpyeBjk=
+			sI7gEXHnVmY1ITgPc30HDyD2rp6B3kgToKHAv2mBnGQ=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/KountSDK.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			6PGNhoiW7IFIyRbaj/KxgJEkCSU=
+			p9S6fpLo8ycii2pxMgVr4pcpEwk=
 			</data>
 			<key>hash2</key>
 			<data>
-			3DE9fDQhkPusWe0A0njVb7MjxtncXca/N8FmSmHHlBE=
+			3c6mGG4/gZxylTaQfuEF7sssjPnH/wMgS0lYbstjbf0=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/KountSDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			hOWQyhj5oVXY4DXxqI7yj+EfbMI=
+			S5blnMDBk+lvJJHgoY66wwGt0as=
 			</data>
 			<key>hash2</key>
 			<data>
-			/xOm9xicoczPpVEqWvE8XO5x1nTqqAVBt3tgV3WrXhA=
+			b2zepu+vziwInX/r/Jjy2HZav9/fQoPCDIk27OSOdpo=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/KountSDK.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			6PGNhoiW7IFIyRbaj/KxgJEkCSU=
+			p9S6fpLo8ycii2pxMgVr4pcpEwk=
 			</data>
 			<key>hash2</key>
 			<data>
-			3DE9fDQhkPusWe0A0njVb7MjxtncXca/N8FmSmHHlBE=
+			3c6mGG4/gZxylTaQfuEF7sssjPnH/wMgS0lYbstjbf0=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/KountSDK.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ukT1SpB05nqQ4xB0cvzHu3H9AAU=
+			W7humjHHooGvumGo9Zo/fnR1Rpc=
 			</data>
 			<key>hash2</key>
 			<data>
-			hYikFnmPdIvxcrUU5yjtEZTvi8Z55trvAP87fpyeBjk=
+			sI7gEXHnVmY1ITgPc30HDyD2rp6B3kgToKHAv2mBnGQ=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/KountSDK.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			hY8XxzRhhYTgCi9gKWVgvFmfD6k=
+			yUJ7CZVjG4CjLPUolJzNYjrW2SM=
 			</data>
 			<key>hash2</key>
 			<data>
-			VIVQZFY8HVw7i/SfcPXd7fR6N8B42c2RSyL+f+4RHKg=
+			HJ1chbsId/m3XwKlbnpIbWzk0WiaR579SqBI4A9szZU=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/KountSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			IN/t/5IpGzA6dCfKWSXLrH+t0QM=
+			BhkaZ51sYpPlaO/r/tF+bVsKlO8=
 			</data>
 			<key>hash2</key>
 			<data>
-			BZP09ERSTfd+TE69cYr2TuLWgQQJFhrJvYQeD0haNdw=
+			n8cZZ4mrjNmoDAVExYi5wNV0QZ0Lgf49YoRCZGRIiiw=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/KountSDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			hY8XxzRhhYTgCi9gKWVgvFmfD6k=
+			yUJ7CZVjG4CjLPUolJzNYjrW2SM=
 			</data>
 			<key>hash2</key>
 			<data>
-			VIVQZFY8HVw7i/SfcPXd7fR6N8B42c2RSyL+f+4RHKg=
+			HJ1chbsId/m3XwKlbnpIbWzk0WiaR579SqBI4A9szZU=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/PrivacyInfo.xcprivacy</key>
@@ -285,11 +289,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			tjQqLSWuG7FfocVuMqBBOdJpNaU=
+			2ckdwcvVdRBTV3UetwJIBgOUUc4=
 			</data>
 			<key>hash2</key>
 			<data>
-			Xkjs1aMUt1XgdQblvGabbm4xEwLYi1FXKo74s3SnBWA=
+			aLZZ0+ulAmbc9rldqC6vw14hwQXw0Dfxn+9+LXbjzO8=
 			</data>
 		</dict>
 	</dict>
