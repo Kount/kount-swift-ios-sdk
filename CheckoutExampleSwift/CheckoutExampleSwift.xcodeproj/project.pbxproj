@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5A39B1F32E538572009B59FE /* KountSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A39B1F22E538572009B59FE /* KountSDK.xcframework */; };
+		5A8CD3D62EC7ABF70033E4B7 /* KountSDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A8CD3D52EC7ABF70033E4B7 /* KountSDK.xcframework */; };
 		7E7826A61CDA4D120008C69A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7826A51CDA4D120008C69A /* AppDelegate.swift */; };
 		7E7826A81CDA4D120008C69A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7826A71CDA4D120008C69A /* ViewController.swift */; };
 		7E7826AB1CDA4D120008C69A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E7826A91CDA4D120008C69A /* Main.storyboard */; };
@@ -30,7 +30,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5A39B1F22E538572009B59FE /* KountSDK.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:62G3CSFCPV:Equifax Inc"; lastKnownFileType = wrapper.xcframework; name = KountSDK.xcframework; path = ../KountSDK.xcframework; sourceTree = SOURCE_ROOT; };
+		5A8CD3D52EC7ABF70033E4B7 /* KountSDK.xcframework */ = {isa = PBXFileReference; expectedSignature = "AppleDeveloperProgram:62G3CSFCPV:Equifax Inc"; lastKnownFileType = wrapper.xcframework; path = KountSDK.xcframework; sourceTree = "<group>"; };
 		7E7826A21CDA4D120008C69A /* CheckoutExampleSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheckoutExampleSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E7826A51CDA4D120008C69A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7E7826A71CDA4D120008C69A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -46,7 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A39B1F32E538572009B59FE /* KountSDK.xcframework in Frameworks */,
+				5A8CD3D62EC7ABF70033E4B7 /* KountSDK.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,7 +56,7 @@
 		7E7826991CDA4D120008C69A = {
 			isa = PBXGroup;
 			children = (
-				5A39B1F22E538572009B59FE /* KountSDK.xcframework */,
+				5A8CD3D52EC7ABF70033E4B7 /* KountSDK.xcframework */,
 				7E7826A41CDA4D120008C69A /* CheckoutExampleSwift */,
 				7E7826A31CDA4D120008C69A /* Products */,
 				ACFE764525CA80D900825D2C /* Frameworks */,

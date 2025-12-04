@@ -1,83 +1,15 @@
 # iOS SDK Release Notes
 
 
-## 4.1.0
+## 5.0.0
 
-* Added new UI element collection capabilities for analytics
+  * We have released the Kount SDK for iOS version 5.0.0 with a complete rewrite in Swift with several API changes.
+  * Version 5.0.0 is currently only available for Swift implementations.
 
-## 4.0.4.1
+## 5.0.1
 
-* Documentation update
+  * Fix for iOS 17 & Earlier: Removed a hard dependency on an API exclusive to iOS 18+ (allowLossyConversion). This resolves a dyld linker failure that caused an immediate crash on app launch for any device running iOS 17 or earlier.
+  * Expanded OS Support: The minimum supported iOS version for the Swift SDK (v5.x.x) has been lowered to iOS 15.6, broadening compatibility for more devices.
+  * Repository Segmentation: To improve clarity and streamline development, the SDK repositories have been segmented by their base language. The new Swift SDK (v5.x.x) and the legacy Objective-C SDK (v4.x.x) now reside in separate repositories.
+  * Documentation Segmentation: Mirroring the repository changes, the official documentation has also been segmented. You can now find dedicated documentation for the Swift SDK and the Objective-C SDK, making it easier to find the information relevant to your specific implementation.
 
-## 4.0.4
-
-* Fix ARCH issues
-
-## 4.0.3
-
-* Fix C-Flag issue in library which was preventing Archiving
-
-## 4.0.2
-
-* Enabled bitcode flag in library
-* Enabled bitcode flag in example apps for testing
-
-## 4.0.1
-
-* Changed Library to a Universal Debug Library to support other platforms like x86 for testing
-* Updated Readme documentation for new XCode header changes in swift.
-
-## 4.0
-
-* Enhancements to the iOS SDK for Kount customers including:
-
-  * City Level location information
-  * Enhanced timing metrics
-  * iOS 13 updates
-  * Security and Bug fixes
-  * Kount's iOS SDK 4.0.0 is compatible with:
-
-Minimum Version of iOS in application: 9.3
-Recommended Target Version of iOS in application: 13
-Tested on the following iOS OS Versions:
-
-* 12.4.4
-* 13
-* 13.1
-* 13.2
-* 13.2.3
-
-## 3.2
-=======
-## 4.0.0
-
-Enhancements to the iOS SDK for Kount customers including:
-* City Level location information
-* Enhanced timing metrics
-* iOS 13 updates
-* Security and Bug fixes
-
-Kount's iOS SDK 4.0.0 is compatible with:
-* Minumum Version of iOS in application: 9.3
-* Recommended Target Version of iOS in application: 13
-* Tested on the following iOS OS Versions:
-  * 12.4.4
-  * 13
-  * 13.1
-  * 13.2
-  * 13.2.3
-
-## 3.2 
->>>>>>> master
-
-* Resolved Failure to deallocate CLLocationManager
-* Resolved Invalid address exception in KCollectorTaskBase
-* Resolved Locale reporting information
-* Added performance improvements
-* Minor updates to keep up to date with XCode
-
-## 3.1
-
-* Updated SDK in preparation for future enhancements. No coding interface changes implemented, completely compatible with established 3.0 integrations.
-* Tested with iOS 10
-* Bumped deployment target to iOS 8.0
