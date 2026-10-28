@@ -1,7 +1,6 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.1.2 effective-5.10 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
-// swift-module-flags: -target x86_64-apple-ios15.6-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name KountSDK
-// swift-module-flags-ignorable:  -interface-compiler-version 6.1.2
+// swift-compiler-version: Apple Swift version 6.0.2 effective-5.10 (swiftlang-6.0.2.1.2 clang-1600.0.26.4)
+// swift-module-flags: -target x86_64-apple-ios15.6-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name KountSDK
 import CommonCrypto
 import CoreFoundation
 import CoreLocation
@@ -10,6 +9,7 @@ import Foundation
 import Network
 import QuartzCore
 import Swift
+import SwiftUI
 import SystemConfiguration
 import UIKit
 import _Concurrency
@@ -83,6 +83,7 @@ public protocol AnalyticsServicing {
   @objc public static var appSessionID: Swift.String
   @objc public static var logInEvents: [[Swift.String : Any]]
   @objc final public func register(viewController: UIKit.UIViewController)
+  @objc final public func rescanControls(in viewController: UIKit.UIViewController)
   @objc final public func collect(_ sessionID: Swift.String?, analyticsSwitch analyticsData: Swift.Bool, completion completionBlock: @escaping (Swift.String, Swift.Bool, (any Swift.Error)?) -> Swift.Void)
   @objc final public func setEnvironmentForAnalytics(_ env: KountSDK.KountEnvironment)
   @objc @_Concurrency.MainActor final public func storeLogInEvents(logInStatus: Swift.Bool)
@@ -101,6 +102,7 @@ public protocol AnalyticsServicing {
   @objc final public func processStepperEvents(_ events: [[Swift.String : Any]], stepper: UIKit.UIStepper, touch: UIKit.UITouch)
   @objc final public func processPageControlEvents(_ events: [[Swift.String : Any]], pageControl: UIKit.UIPageControl, touch: UIKit.UITouch)
   @objc final public func processImageViewEvents(_ events: [[Swift.String : Any]])
+  @objc final public func processSwitchEvents(_ events: [[Swift.String : Any]])
   @objc final public func trackTouchBegan(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent?)
   @objc final public func handleTouchBegan(_ touches: Swift.Set<UIKit.UITouch>, event: UIKit.UIEvent?)
   @objc final public func handleTouchMoved(_ touches: Swift.Set<UIKit.UITouch>, event: UIKit.UIEvent?)
@@ -119,11 +121,25 @@ public protocol AnalyticsServicing {
   @objc final public func updateButtonSessions(_ sessions: [[Swift.String : Any]])
   @objc final public func updateSliderSessions(_ sessions: [[Swift.String : Any]])
   @objc final public func updateStepperSessions(_ sessions: [[Swift.String : Any]])
+  @objc final public func updateSwitchSessions(_ sessions: [[Swift.String : Any]])
   @objc final public func updatePageControlSessions(_ sessions: [[Swift.String : Any]])
   @objc deinit
 }
+extension KountSDK.KountAnalyticsTracker : KountSDK.SwiftUIInteractionTracking {
+  @objc final public var isCollectionInitialized: Swift.Bool {
+    @objc get
+  }
+  @objc final public func processSwiftUIButtonTap(title: Swift.String, isLongPressed: Swift.Bool, location: CoreFoundation.CGPoint, frame: CoreFoundation.CGRect)
+  @objc final public func processSwiftUISliderChange(startValue: Swift.Float, stopValue: Swift.Float)
+  @objc final public func processSwiftUIStepperChange(oldValue: Swift.Double, newValue: Swift.Double)
+  @objc final public func processSwiftUIToggleChange(oldValue: Swift.Bool, newValue: Swift.Bool)
+  @objc final public func processSwiftUITextFieldEvent(type eventType: Swift.String)
+  @objc final public func processSwiftUIImageViewTap(location: CoreFoundation.CGPoint, frame: CoreFoundation.CGRect)
+}
 @objc @_inheritsConvenienceInitializers @objcMembers @_Concurrency.MainActor @preconcurrency open class KountAnalyticsViewController : UIKit.UIViewController, UIKit.UITextFieldDelegate, UIKit.UITextViewDelegate, UIKit.UISearchBarDelegate {
-  @objc @_Concurrency.MainActor @preconcurrency public static let shared: KountSDK.KountAnalyticsViewController
+  @objc @_Concurrency.MainActor @preconcurrency public static var shared: KountSDK.KountAnalyticsViewController {
+    @objc get
+  }
   @objc @_Concurrency.MainActor @preconcurrency weak public var delegate: (any KountSDK.KountAnalyticsDelegate)? {
     @objc get
     @objc set
@@ -431,6 +447,59 @@ public struct TelemetryPayload : Swift.Codable {
 public enum KAnalyticsConstants {
   public static let viewControllerWillDisappearNotification: Foundation.Notification.Name
 }
+public protocol SwiftUIInteractionTracking : AnyObject {
+  var isCollectionInitialized: Swift.Bool { get }
+  func processSwiftUIButtonTap(title: Swift.String, isLongPressed: Swift.Bool, location: CoreFoundation.CGPoint, frame: CoreFoundation.CGRect)
+  func processSwiftUISliderChange(startValue: Swift.Float, stopValue: Swift.Float)
+  func processSwiftUIStepperChange(oldValue: Swift.Double, newValue: Swift.Double)
+  func processSwiftUIToggleChange(oldValue: Swift.Bool, newValue: Swift.Bool)
+  func processSwiftUITextFieldEvent(type eventType: Swift.String)
+  func processSwiftUIImageViewTap(location: CoreFoundation.CGPoint, frame: CoreFoundation.CGRect)
+}
+@_Concurrency.MainActor @preconcurrency public struct KountSwiftUIButton<Label> : SwiftUICore.View where Label : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(_ title: Swift.String, longPressMinimumDuration: Swift.Double = 0.5, analyticsTracker: any KountSDK.SwiftUIInteractionTracking = KountAnalyticsTracker.shared, action: @escaping () -> Swift.Void) where Label == SwiftUICore.Text
+  @_Concurrency.MainActor @preconcurrency public init(analyticsTitle: Swift.String, longPressMinimumDuration: Swift.Double = 0.5, analyticsTracker: any KountSDK.SwiftUIInteractionTracking = KountAnalyticsTracker.shared, action: @escaping () -> Swift.Void, @SwiftUICore.ViewBuilder label: @escaping () -> Label)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s8KountSDK0A13SwiftUIButtonV4bodyQrvp", 0) __<Label>
+}
+@_Concurrency.MainActor @preconcurrency public struct KountSwiftUISlider : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(value: SwiftUICore.Binding<Swift.Float>, in range: Swift.ClosedRange<Swift.Float>, step: Swift.Float? = nil, analyticsTracker: any KountSDK.SwiftUIInteractionTracking = KountAnalyticsTracker.shared)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s8KountSDK0A13SwiftUISliderV4bodyQrvp", 0) __
+}
+@_Concurrency.MainActor @preconcurrency public struct KountSwiftUIStepper : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(_ label: Swift.String, value: SwiftUICore.Binding<Swift.Double>, in range: Swift.ClosedRange<Swift.Double>? = nil, step: Swift.Double = 1, analyticsTracker: any KountSDK.SwiftUIInteractionTracking = KountAnalyticsTracker.shared)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s8KountSDK0A14SwiftUIStepperV4bodyQrvp", 0) __
+}
+@_Concurrency.MainActor @preconcurrency public struct KountSwiftUIToggle : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(_ label: Swift.String, isOn: SwiftUICore.Binding<Swift.Bool>, analyticsTracker: any KountSDK.SwiftUIInteractionTracking = KountAnalyticsTracker.shared)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s8KountSDK0A13SwiftUIToggleV4bodyQrvp", 0) __
+}
+@_Concurrency.MainActor @preconcurrency public struct KountSwiftUITextField : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(_ placeholder: Swift.String, text: SwiftUICore.Binding<Swift.String>, analyticsTracker: any KountSDK.SwiftUIInteractionTracking = KountAnalyticsTracker.shared)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s8KountSDK0A16SwiftUITextFieldV4bodyQrvp", 0) __
+}
+@_Concurrency.MainActor @preconcurrency public struct KountSwiftUIImageView : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(named: Swift.String, analyticsTracker: any KountSDK.SwiftUIInteractionTracking = KountAnalyticsTracker.shared, onTap: (() -> Swift.Void)? = nil)
+  @_Concurrency.MainActor @preconcurrency public init(systemName: Swift.String, analyticsTracker: any KountSDK.SwiftUIInteractionTracking = KountAnalyticsTracker.shared, onTap: (() -> Swift.Void)? = nil)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s8KountSDK0A16SwiftUIImageViewV4bodyQrvp", 0) __
+}
 extension KountSDK.KDataCollectorStatus : Swift.Equatable {}
 extension KountSDK.KDataCollectorStatus : Swift.Hashable {}
 extension KountSDK.KDataCollectorStatus : Swift.RawRepresentable {}
@@ -440,3 +509,9 @@ extension KountSDK.KountEnvironment : Swift.RawRepresentable {}
 extension KountSDK.LocationCollectorConfig : Swift.Equatable {}
 extension KountSDK.LocationCollectorConfig : Swift.Hashable {}
 extension KountSDK.LocationCollectorConfig : Swift.RawRepresentable {}
+extension KountSDK.KountSwiftUIButton : Swift.Sendable {}
+extension KountSDK.KountSwiftUISlider : Swift.Sendable {}
+extension KountSDK.KountSwiftUIStepper : Swift.Sendable {}
+extension KountSDK.KountSwiftUIToggle : Swift.Sendable {}
+extension KountSDK.KountSwiftUITextField : Swift.Sendable {}
+extension KountSDK.KountSwiftUIImageView : Swift.Sendable {}
